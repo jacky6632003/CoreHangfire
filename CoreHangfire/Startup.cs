@@ -9,6 +9,8 @@ using CoreHangfire.Infrastructure.Dependency;
 using CoreHangfire.Infrastructure.HangFireMisc;
 using CoreHangfire.Infrastructure.HangFireMisc.Interface;
 using CoreHangfire.Infrastructure.Mapping;
+using CoreHangfire.Repository.Helper;
+using CoreHangfire.Service.Infrastructure.Mapping;
 using Hangfire;
 using Hangfire.Console;
 using Hangfire.Dashboard;
@@ -78,6 +80,17 @@ namespace CoreHangfire
 
             // database connection - Hangfire
             this.HangfireConnection = this.Configuration.GetConnectionString("Hangfire");
+
+            //DB
+            services.AddScoped<IDatabaseHelper>(x => new DatabaseHelper(HangfireConnection, SampleConnection));
+
+            //AutoMapper
+            services.AddAutoMapper
+          (
+              typeof(ControllerMappingProfile).Assembly,
+              typeof(ServiceProfile).Assembly
+
+          );
 
             // Dendency Injection
             services.AddDendencyInjection();

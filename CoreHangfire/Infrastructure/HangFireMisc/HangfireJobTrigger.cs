@@ -22,6 +22,12 @@ namespace CoreHangfire.Infrastructure.HangFireMisc
                 cronExpression: "0/5 * * * *",
                 timeZone: TimeZoneInfo.Local
             );
+            RecurringJob.AddOrUpdate<IHangfireJobs>
+       (
+           methodCall: s => s.Customerchoicebank(null),
+           cronExpression: "0 0 8 * * ? ",
+           timeZone: TimeZoneInfo.Local
+       );
         }
     }
 }

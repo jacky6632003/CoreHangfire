@@ -28,6 +28,12 @@
     <Folder Include="DB\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CoreHangfire.Common\CoreHangfire.Common.csproj" />
+    <ProjectReference Include="..\CoreHangfire.Repository\CoreHangfire.Repository.csproj" />
+    <ProjectReference Include="..\CoreHangfire.Service\CoreHangfire.Service.csproj" />
+  </ItemGroup>
+
 
 
 </Project>

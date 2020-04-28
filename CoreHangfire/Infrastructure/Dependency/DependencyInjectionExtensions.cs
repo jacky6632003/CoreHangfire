@@ -1,5 +1,9 @@
 ﻿using CoreHangfire.Infrastructure.HangFireMisc;
 using CoreHangfire.Infrastructure.HangFireMisc.Interface;
+using CoreHangfire.Repository.Implement;
+using CoreHangfire.Repository.Interface;
+using CoreHangfire.Service.Implement;
+using CoreHangfire.Service.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,8 +21,10 @@ namespace CoreHangfire.Infrastructure.Dependency
             services.AddScoped<IHangfireJobs, HangfireJobs>();
 
             // Repository
+            services.AddScoped<ICustomerchoicebankRepository, CustomerchoicebankRepository>();
 
             // Service
+            services.AddScoped<ICustomerchoicebankService, CustomerchoicebankService>();
 
             return services;
         }
